@@ -7,7 +7,7 @@
 <meta name="HandheldFriendly" content="true">
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -91,11 +91,6 @@ i{
 	background: linear-gradient(to right, #1e5799 0%, #3ccdbb 0%, #16c9f6 100%);
 }
 
-.nav-item a{
-	color: white!important;
-	font-weight: bold;
-}
-
 .header-section{
 	width: 100%;
 	height: inherit;
@@ -122,7 +117,7 @@ i{
 }
 
 .center-div p{
-	font-size: 2rem;
+	font-size: 1.5rem;
 	padding: 10px 0 20px 0;
 	color: white;
 }
@@ -134,7 +129,7 @@ i{
 	padding: 12px 35px;
 	outline: none;
 	color: #fff;
-	font-size: 1.5rem;
+	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.4;
 	text-align: center;
@@ -254,12 +249,70 @@ i{
 
 /***************** footer css ends ********/
 
+/*************collapsable nav bar starts************/
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+  
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #985aeb;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/*****************collapsable nav bar ends***********************/
+
 /***************** media queries ********/
 
 @media(max-width: 768px){
 	.nav-item{
 		text-align: center!important;
     }
+}
+
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
 }
 
 /* Media Queries: Tablet Landscape */
@@ -323,43 +376,31 @@ img { max-width: 100%; height: auto; }
 	<div class="container text-uppercase p-2">
 
   <a class="navbar-brand font-weight-bold text-white">Innerve'20</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto text-uppercase">
-
-      <li class="nav-item active">
+<div id="myNav" class="overlay">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	<div class="overlay-content">
         <a class="nav-link" href="https://www.innerve-igdtuw.com/events.html">Events<span class="sr-only">(current)</span></a>
-      </li>
-
-      <li class="nav-item">
+      
         <a class="nav-link" href="https://www.innerve-igdtuw.com/g.html">Gallery</a>
-      </li>
-
-      <li class="nav-item">
+    
         <a class="nav-link" href="https://www.innerve-igdtuw.com/meet.html">Our Team</a>
-      </li>
-
-      <li class="nav-item">
+       
         <a class="nav-link" href="https://www.google.com/maps/place/Indira+Gandhi+Delhi+Technical+University+for+Women/@28.6657889,77.2325628,17z/data=!4m5!3m4!1s0x390cfd0683919c3b:0xf5fc331b74c2b9e2!8m2!3d28.6652594!4d77.2323931">Location</a>
-      </li>
-
-      <li class="nav-item">
+       
         <a class="nav-link" href="https://www.innerve-igdtuw.com/ig.html">Sponsors</a>
-      </li>
-
-    </ul>
+    
+	</div>
 </div>
+<span style="font-size:30px;cursor:pointer;float: right; color: #fff;" onclick="openNav()">&#9776;</span>
 	</div>
 </nav>
 
 <div class="header-section">
-	<img src="https://www.innerve-igdtuw.com/innerve_logo.png" width="450" height="350" alt="Innerve" align="center">
+	<img src="https://www.innerve-igdtuw.com/innerve_logo.png" width="350" height="250" alt="Innerve" align="center">
 	<div class="center-div">
 		<p>Unveil your talent here!<br>Registration ends on 17th August 2020</p>
-		<h1>Please note registration is mandatory for entry into the IGDTUW campus.</h1>
+		<h1 style="line-height:12px;">Please note registration is mandatory for entry into the IGDTUW campus.</h1>
 		<div class="header-buttons">
 			<a href="https://forms.gle/owDjPUo9SpMWEQYh7">Register</a>
 		</div>
@@ -520,7 +561,17 @@ img { max-width: 100%; height: auto; }
   	function topFunction() {
   		document.body.scrollTop = 0; //for safari
   		document.documentElement.scrollTop = 0; //for chrome, firefox, IE and opera
-  	}
+	}
+
+	///collapsable nav bar
+	  
+	function openNav() {
+  		document.getElementById("myNav").style.height = "100%";
+	}
+
+	function closeNav() {
+  		document.getElementById("myNav").style.height = "0%";
+	}
 
   </script>
 
